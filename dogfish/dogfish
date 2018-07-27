@@ -15,7 +15,7 @@ VERSION='1.2.0'
 
 DOGFISH_MYSQL_OPTS=( $DOGFISH_MYSQL_OPTS )
 DOGFISH_PG_OPTS=( $DOGFISH_PG_OPTS )
-SHELL_OPTS="shell-migrations/migrations.log"
+SHELL_OPTS="shell-migrations/logs/migrations.log"
 
 set -e # Stop on error
 set -o nounset # Error on using unset vars

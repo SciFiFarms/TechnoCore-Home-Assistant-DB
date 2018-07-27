@@ -10,7 +10,11 @@ ENV POSTGRES_DB homeassistant
 #RUN useradd --no-create-home --user-group --shell /bin/bash --uid $userid $username 
 #RUN usermod -u $userid postgres
 
-COPY docker-entrypoint-initdb.d/ /docker-entrypoint-initdb.d
+COPY postgres-image/docker-entrypoint.sh /usr/local/bin/
 COPY data /var/lib/postgresql
-RUN chown postgres:postgres /var/lib/postgresql/*
+COPY dogfish/dogfish /usr/bin/
+COPY shell-migrations/ /shell-migrations/
+RUN chown -R postgres:postgres /var/lib/postgresql/*
+RUN chown -R postgres:postgres /shell-migrations
 VOLUME /var/lib/postgresql/data
+VOLUME /shell-migrations/logs
