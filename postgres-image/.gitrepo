@@ -4,7 +4,7 @@
 ; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
 ;
 [subrepo]
-	remote = https://github.com/docker-library/postgres.git
+	remote = git@github.com:docker-library/postgres.git
 	branch = master
 	commit = 2cab5040341f46331367f8766b4d249a5b7a9366
 	parent = ec2e36d3a14b1f97cb83c1a3433effba8695ffd0
