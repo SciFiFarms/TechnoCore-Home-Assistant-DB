@@ -18,4 +18,5 @@ ln -s ../pg_ident.conf .
 ln -s ../postgresql.conf .
 ln -s ../pg_hba.conf .
 
-pg_ctl -D $(psql -Xtc 'show data_directory') stop 
+force_reboot=1
+export force_reboot
