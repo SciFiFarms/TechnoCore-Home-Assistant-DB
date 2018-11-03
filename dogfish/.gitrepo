@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:SciFiFarms/dogfish.git
 	branch = master
-	commit = a4d4f79380fd3eb6ae9a50b0c4e698f3087c54aa
-	parent = bbab47ee17ea363413e28a44e77b17cb832ca718
+	commit = 36bd27ba6a22451e28fd4c571aeda4ad096b1621
+	parent = a4c7dbe78c30715bb556dc2c902c01957a4ab2ef
 	cmdver = 0.4.0
 	method = merge
