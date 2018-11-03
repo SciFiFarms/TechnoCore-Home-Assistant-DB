@@ -15,8 +15,15 @@ COPY data /var/lib/postgresql
 COPY dogfish/dogfish /usr/bin/
 COPY shell-migrations/ /shell-migrations/
 RUN chown -R postgres:postgres /var/lib/postgresql/*
-RUN chown -R postgres:postgres /shell-migrations
 VOLUME /var/lib/postgresql/data
+
+# Add dogfish.
+COPY dogfish/ /usr/share/dogfish
+COPY shell-migrations/ /usr/share/dogfish/shell-migrations
+RUN ln -s /usr/share/dogfish/dogfish /usr/bin/dogfish
+RUN mkdir /var/lib/dogfish 
+RUN touch /var/lib/postgresql/data/migrations.log && ln -s /var/lib/postgresql/data/migrations.log /var/lib/dogfish/migrations.log
+RUN chown -R postgres:postgres /var/lib/dogfish/ 
 
 # Set up the CMD and pre/post hooks.
 COPY go-init /bin/go-init
