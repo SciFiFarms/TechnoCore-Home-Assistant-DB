@@ -17,4 +17,10 @@ COPY shell-migrations/ /shell-migrations/
 RUN chown -R postgres:postgres /var/lib/postgresql/*
 RUN chown -R postgres:postgres /shell-migrations
 VOLUME /var/lib/postgresql/data
-VOLUME /shell-migrations/logs
+
+# Set up the CMD and pre/post hooks.
+COPY go-init /bin/go-init
+COPY entrypoint.sh /usr/bin/entrypoint.sh
+COPY exitpoint.sh /usr/bin/exitpoint.sh
+ENTRYPOINT ["go-init"]
+CMD ["-pre", "entrypoint.sh", "-main", "docker-entrypoint.sh postgres", "-post", "exitpoint.sh"]
