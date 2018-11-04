@@ -244,7 +244,7 @@ function shell_db_exec() {
 
 function shell_create_schema_migrations_table() {
   # Some images (postgres) can't handle other files in their data
-  # folder before it gets a chance to initilize. So we don't do
+  # folder before it gets a chance to initialize. So we don't do
   # anything to create the migration file until after a migration has ran.
   return
 }
