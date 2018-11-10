@@ -1,4 +1,4 @@
-FROM postgres
+FROM postgres:10.6
 
 ENV SSL_CERT_FILE /run/secrets/cert
 ENV SSL_KEY_FILE /run/secrets/key
