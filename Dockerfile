@@ -5,7 +5,7 @@ ENV SSL_KEY_FILE /run/secrets/key
 ENV SSL_CA_FILE /run/secrets/ca
 ENV POSTGRES_DB homeassistant
 
-#COPY postgres-image/docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint-initdb.d/ /docker-entrypoint-initdb.d
 COPY data /var/lib/postgresql
 RUN chown -R postgres:postgres /var/lib/postgresql/*
 VOLUME /var/lib/postgresql/data
