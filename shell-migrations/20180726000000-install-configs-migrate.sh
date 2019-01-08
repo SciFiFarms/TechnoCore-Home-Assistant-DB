@@ -1,15 +1,14 @@
 #!/bin/sh
 
-until createuser homeassistant;
-do
-    sleep 1
-done;
-
 cd /var/lib/postgresql/data
-while [ ! -f postgresql.conf ];
+while [ ! -f pg_hba.conf ];
 do
-    sleep 1;
-done;
+    echo "Waiting for postgresq.conf"
+    sleep 1
+done
+
+# This allows postgres' initialization to execute first. Then this migration gets applied.
+sleep 5
 
 mv pg_hba.conf pg_hba.conf.orig
 mv pg_ident.conf pg_ident.conf.orig
