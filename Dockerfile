@@ -3,7 +3,7 @@ FROM postgres:10.6
 ENV SSL_CERT_FILE /run/secrets/cert_bundle
 ENV SSL_KEY_FILE /run/secrets/key
 ENV SSL_CA_FILE /run/secrets/ca
-ENV POSTGRES_DB homeassistant
+ENV POSTGRES_DB home_assistant
 
 COPY data /var/lib/postgresql
 RUN chown -R postgres:postgres /var/lib/postgresql/*

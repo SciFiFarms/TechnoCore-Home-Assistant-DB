@@ -1,8 +1,8 @@
 #!/bin/sh
 
-until createuser homeassistant;
+until createuser home_assistant;
 do
     echo "Sleeping"
     sleep 3
 done
-echo "Created user homeassistant"
+echo "Created user home_assistant"
